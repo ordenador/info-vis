@@ -1,5 +1,7 @@
 # info-vis
 
+[Aplicación desplegada en en streamlitapp](https://ordenador-info-vis-streamlit-app-albmpx.streamlitapp.com/)
+
 
 Se utilizarán los datos de los temas más escuchados en el año 2022 a nivel global, los que se extrajeron de la Api Web de Spotify con los siguientes campos.
 
