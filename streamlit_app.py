@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import altair as alt
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 
@@ -32,9 +33,22 @@ def aggrid_interactive_table(df: pd.DataFrame):
 
     return selection
 
-
 selection = aggrid_interactive_table(df=data)
 
 if selection:
     st.write("You selected:")
     st.json(selection["selected_rows"])
+
+
+c = alt.Chart(data).mark_bar(
+    color='red',
+    opacity=0.5
+).encode(
+    x='tempo',
+    y='speechiness'
+).properties(
+    title="Tempo vs Speechiness",
+    width=700,
+    height=500
+)
+st.altair_chart(c, use_container_width=True)
