@@ -41,6 +41,7 @@ radar = pd.DataFrame(dict(
     theta=['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'loudness', 'speechiness', 'valence']))
 
 fig = px.line_polar(radar, r='r', theta='theta', line_close=True)
+fig.update_traces(fill='toself')
 st.plotly_chart(fig, use_container_width=True)
 
 # ag-grid
