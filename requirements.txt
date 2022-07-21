@@ -164,6 +164,8 @@ pickleshare==0.7.5
     # via ipython
 pillow==9.1.1
     # via streamlit
+plotly==5.9.0
+    # via -r requirements.in
 prometheus-client==0.14.1
     # via notebook
 prompt-toolkit==3.0.29
@@ -240,6 +242,8 @@ streamlit==1.10.0
     #   streamlit-aggrid
 streamlit-aggrid==0.2.3.post2
     # via -r requirements.in
+tenacity==8.0.1
+    # via plotly
 terminado==0.15.0
     # via notebook
 tinycss2==1.1.1

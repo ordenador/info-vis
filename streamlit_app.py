@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.express as px
 import streamlit as st
 import altair as alt
 from st_aggrid import AgGrid, GridOptionsBuilder
@@ -6,41 +7,44 @@ from st_aggrid.shared import GridUpdateMode
 
 data = pd.read_csv("merge.csv")
 
-def aggrid_interactive_table(df: pd.DataFrame):
-    """Creates an st-aggrid interactive table based on a dataframe.
+st.set_page_config(
+    page_title="Spotify Tracks",
+    page_icon="🎵",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-    Args:
-        df (pd.DataFrame]): Source dataframe
-
-    Returns:
-        dict: The selected row
-    """
-    options = GridOptionsBuilder.from_dataframe(
-        df, enableRowGroup=True, enableValue=True, enablePivot=True
-    )
-
-    options.configure_side_bar()
-
-    options.configure_selection("single")
-    selection = AgGrid(
-        df,
-        enable_enterprise_modules=True,
-        gridOptions=options.build(),
-        theme="light",
-        update_mode=GridUpdateMode.MODEL_CHANGED,
-        allow_unsafe_jscode=True,
-    )
-
-    return selection
-
-selection = aggrid_interactive_table(df=data)
-
-if selection:
-    st.write("You selected:")
-    st.json(selection["selected_rows"])
+# dashboard title
+st.title("Spotify Tracks 2022")
 
 
-c = alt.Chart(data).mark_bar(
+# top-level filters
+artist = st.selectbox("Selecciona el artista", pd.unique(data["artist_name"]))
+# dataframe filter
+artist_filtred = data[data["artist_name"] == artist]
+
+track = st.selectbox("Selecciona el track",
+                     pd.unique(artist_filtred["track_name"]))
+track_filtred = artist_filtred[artist_filtred["track_name"] == track]
+
+
+radar = pd.DataFrame(dict(
+    r=[
+        float(track_filtred['acousticness']),
+        float(track_filtred['danceability']),
+        float(track_filtred['energy']),
+        float(track_filtred['instrumentalness']),
+        float(track_filtred['liveness']),
+        float(track_filtred['loudness']),
+        float(track_filtred['speechiness']),
+        float(track_filtred['valence'])],
+    theta=['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'loudness', 'speechiness', 'valence']))
+
+fig = px.line_polar(radar, r='r', theta='theta', line_close=True)
+st.plotly_chart(fig, use_container_width=True)
+
+# ag-grid
+c = alt.Chart(artist_filtred).mark_bar(
     color='red',
     opacity=0.5
 ).encode(
@@ -50,5 +54,7 @@ c = alt.Chart(data).mark_bar(
     title="Tempo vs Speechiness",
     width=700,
     height=500
-)
+).interactive()
 st.altair_chart(c, use_container_width=True)
+
+# data[0]
