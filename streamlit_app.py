@@ -35,10 +35,9 @@ radar = pd.DataFrame(dict(
         float(track_filtred['energy']),
         float(track_filtred['instrumentalness']),
         float(track_filtred['liveness']),
-        float(track_filtred['loudness']),
         float(track_filtred['speechiness']),
         float(track_filtred['valence'])],
-    theta=['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'loudness', 'speechiness', 'valence']))
+    theta=['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']))
 
 fig = px.line_polar(radar, r='r', theta='theta', line_close=True)
 fig.update_traces(fill='toself')
