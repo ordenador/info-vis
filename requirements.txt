@@ -153,6 +153,7 @@ pandas==1.4.2
     # via
     #   altair
     #   streamlit
+    #   streamlit-aggrid
 pandocfilters==1.5.0
     # via nbconvert
 parso==0.8.3
@@ -199,6 +200,8 @@ python-dateutil==2.8.2
     #   jupyter-client
     #   pandas
     #   streamlit
+python-dotenv==0.19.2
+    # via streamlit-aggrid
 pytz==2022.1
     # via pandas
 pytz-deprecation-shim==0.1.0.post0
@@ -218,6 +221,8 @@ semver==2.13.0
     # via streamlit
 send2trash==1.8.0
     # via notebook
+simplejson==3.17.6
+    # via streamlit-aggrid
 six==1.16.0
     # via
     #   asttokens
@@ -230,6 +235,10 @@ soupsieve==2.3.2.post1
 stack-data==0.3.0
     # via ipython
 streamlit==1.10.0
+    # via
+    #   -r requirements.in
+    #   streamlit-aggrid
+streamlit-aggrid==0.2.3.post2
     # via -r requirements.in
 terminado==0.15.0
     # via notebook
