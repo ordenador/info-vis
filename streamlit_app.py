@@ -2,10 +2,12 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 import altair as alt
-from st_aggrid import AgGrid, GridOptionsBuilder
-from st_aggrid.shared import GridUpdateMode
+# from st_aggrid import AgGrid, GridOptionsBuilder
+# from st_aggrid.shared import GridUpdateMode
+
 
 data = pd.read_csv("merge.csv")
+
 
 st.set_page_config(
     page_title="Spotify Tracks",
@@ -13,6 +15,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
 
 # dashboard title
 st.title("Spotify Tracks 2022")
@@ -23,9 +26,15 @@ artist = st.selectbox("Selecciona el artista", pd.unique(data["artist_name"]))
 # dataframe filter
 artist_filtred = data[data["artist_name"] == artist]
 
-track = st.selectbox("Selecciona el track",
-                     pd.unique(artist_filtred["track_name"]))
-track_filtred = artist_filtred[artist_filtred["track_name"] == track]
+# selectbox for the tracks
+track_values = artist_filtred["track_name"].tolist()
+track_options = artist_filtred.index.tolist()
+track_dic = dict(zip(track_options, track_values))
+track_index = st.selectbox("Selecciona el track", track_options, format_func=lambda x: track_dic[x])
+# st.write("track_index:", track_index)
+# st.write("track_values:", artist_filtred["track_name"].loc[track_index])
+track_filtred = artist_filtred.loc[track_index]
+
 
 
 radar = pd.DataFrame(dict(
@@ -39,9 +48,11 @@ radar = pd.DataFrame(dict(
         float(track_filtred['valence'])],
     theta=['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']))
 
+
 fig = px.line_polar(radar, r='r', theta='theta', line_close=True)
 fig.update_traces(fill='toself')
 st.plotly_chart(fig, use_container_width=True)
+
 
 # ag-grid
 c = alt.Chart(artist_filtred).mark_bar(
@@ -56,5 +67,3 @@ c = alt.Chart(artist_filtred).mark_bar(
     height=500
 ).interactive()
 st.altair_chart(c, use_container_width=True)
-
-# data[0]
