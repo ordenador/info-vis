@@ -21,7 +21,7 @@ data = pd.read_csv("merge.csv")
 st.set_page_config(
     page_title="Spotify Tracks",
     page_icon="🎵",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded",
 )
 
