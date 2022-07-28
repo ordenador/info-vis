@@ -34,7 +34,7 @@ with col1:
 with col2:
     # st.header("Spotify logo")
     image = Image.open("Spotify_Logo_RGB_Green.png")
-    st.image(image, caption=None, width=400, use_column_width="never", clamp=False, channels="RGB", output_format="auto")
+    st.image(image, caption=None, width=345, use_column_width="never", clamp=False, channels="RGB", output_format="auto")
 
 
 with st.expander("Diccionario de datos"):
