@@ -58,8 +58,9 @@ Se utilizan datos descargados desde la Api de Spotify, corresponde a informació
 * **Valence**: Describe la positividad musical transmitida por una pista. Pista con alto valencia sonido más positivo (ejmplo: feliz, alegre, eufórico)
 
 * **Tempo**: El tempo general estimado de una pista en pulsaciones por minuto (BPM). El tempo es la velocidad o el ritmo de una pieza dada y se deriva directamente de la duración promedio del tiempo.
-     """)
-
+""")
+st.markdown("---")
+st.markdown("<h5 style='text-align: center;'>Características de la pista musical</h1>", unsafe_allow_html=True)
 
 
 col11, col12= st.columns(2)
@@ -70,7 +71,6 @@ with col11:
     # dataframe filter
     artist_filtred = data[data["artist_name"] == artist]
 
-
 with col12:
     # selectbox for the tracks
     track_values = artist_filtred["track_name"].tolist()
@@ -78,7 +78,6 @@ with col12:
     track_dic = dict(zip(track_options, track_values))
     track_index = st.selectbox("Selecciona el track", track_options, format_func=lambda x: track_dic[x])
     track_filtred = artist_filtred.loc[track_index]
-
 
 col31, col32= st.columns(2)
 
@@ -93,10 +92,18 @@ with col31:
             float(track_filtred['speechiness']),
             float(track_filtred['valence'])],
         theta=['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']))
+    note = "Gráfico de radar de características de la pista musical."
     fig = px.line_polar(radar, r='r', theta='theta', line_close=True, template='plotly_dark')
+    fig.add_annotation(
+        showarrow=False,
+        text=note,
+        xref='x domain',
+        x=0.5,
+        yref='y domain',
+        y=-0.1,
+    )
     fig.update_traces(fill='toself')
     st.plotly_chart(fig, use_container_width=True)
-
 
 
 with col32:
@@ -107,6 +114,8 @@ with col32:
     else:
         st.write("No existe vista previa disponible")
 
+st.markdown("---")
+st.markdown("<h5 style='text-align: center;'> Características de las pistas por género musical</h1>", unsafe_allow_html=True)
 
 with st.container():
     generes_list = []
@@ -135,11 +144,13 @@ with st.container():
     plt.subplot(1, 3, 3)
     sns.distplot(genere_filter['danceability'])
     st.pyplot(fig, figsize=sns_size)
-    st.markdown("""
-    ---
-    ### Integrantes:
-    * **Luis Tobar**
-    * **Agustin Uribe**
-    * **Mario Faúndez**
-    """)
+    st.markdown("<p style='text-align: center;font-size: .9em;'>Gráficos de distribución de probabilidad de las variables energy, loudness y danceability por género musical.</p>", unsafe_allow_html=True)
+
+st.markdown("""
+---
+### Integrantes:
+* **Luis Tobar**
+* **Agustin Uribe**
+* **Mario Faúndez**
+""")
 
