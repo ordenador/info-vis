@@ -98,6 +98,7 @@ with col31:
     st.plotly_chart(fig, use_container_width=True)
 
 
+
 with col32:
     url = track_filtred['album_image']
     st.image(load_image(url), caption=None, width=None, use_column_width="auto", clamp=False, channels="RGB", output_format="auto")
@@ -108,7 +109,6 @@ with col32:
 
 
 with st.container():
-    st.write("This is inside the container")
     generes_list = []
     for index, row in data.iterrows():
         generes = row['artist_genres']
@@ -121,7 +121,7 @@ with st.container():
     generes_list = sorted(set(generes_list))
 
     # top-level filters
-    genere_box = st.selectbox("Selecciona el genero musical (si tiene 30 o más datos)", generes_list)
+    genere_box = st.selectbox("Selecciona el genero musical", generes_list)
     genere_filter =  data[data['artist_genres'].str.contains("\'{}\'".format(genere_box))]
     st.write("Cantidad de elementos encontrados:", genere_filter.shape[0])
     sns.set_palette("dark")
@@ -135,4 +135,11 @@ with st.container():
     plt.subplot(1, 3, 3)
     sns.distplot(genere_filter['danceability'])
     st.pyplot(fig, figsize=sns_size)
+    st.markdown("""
+    ---
+    ### Integrantes:
+    * **Luis Tobar**
+    * **Agustin Uribe**
+    * **Mario Faúndez**
+    """)
 
