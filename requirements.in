@@ -1,5 +1,8 @@
 streamlit
 numpy
 scipy
-streamlit-aggrid
 plotly
+seaborn
+matplotlib
+streamlit-aggrid
+spotipy

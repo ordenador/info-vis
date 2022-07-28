@@ -3,7 +3,7 @@
 [Aplicación desplegada en en streamlitapp](https://ordenador-info-vis-streamlit-app-albmpx.streamlitapp.com/)
 
 
-Se utilizarán los datos de los temas más escuchados en el año 2022 a nivel global, los que se extrajeron de la Api Web de Spotify con los siguientes campos.
+Se utilizan datos descargados desde la Api de Spotify, corresponde a información sobre las características de 1000 tracks de musica. La query utilizada es la siguiente: `'year:2022'`.
 
 * **Danceability**: Describe qué tan adecuada es una pista en función de una combinación de tempo, estabilidad del ritmo, fuerza ordenada y regularidad general. Un valor de 1.0 es más bailable.
 
