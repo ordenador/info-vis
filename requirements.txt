@@ -222,7 +222,7 @@ python-dateutil==2.8.2
     #   matplotlib
     #   pandas
     #   streamlit
-python-dotenv==0.19.2
+python-decouple==3.6
     # via streamlit-aggrid
 pytz==2022.1
     # via pandas
@@ -251,8 +251,6 @@ semver==2.13.0
     # via streamlit
 send2trash==1.8.0
     # via notebook
-simplejson==3.17.6
-    # via streamlit-aggrid
 six==1.16.0
     # via
     #   asttokens
@@ -271,7 +269,7 @@ streamlit==1.11.1
     # via
     #   -r requirements.in
     #   streamlit-aggrid
-streamlit-aggrid==0.2.3.post2
+streamlit-aggrid==0.3.1
     # via -r requirements.in
 tenacity==8.0.1
     # via plotly
