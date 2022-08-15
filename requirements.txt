@@ -181,7 +181,7 @@ pillow==9.1.1
     # via
     #   matplotlib
     #   streamlit
-plotly==5.9.0
+plotly==5.10.0
     # via -r requirements.in
 prometheus-client==0.14.1
     # via notebook
