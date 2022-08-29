@@ -265,7 +265,7 @@ spotipy==2.20.0
     # via -r requirements.in
 stack-data==0.3.0
     # via ipython
-streamlit==1.12.0
+streamlit==1.12.2
     # via
     #   -r requirements.in
     #   streamlit-aggrid
