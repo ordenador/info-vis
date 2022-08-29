@@ -143,7 +143,7 @@ nest-asyncio==1.5.5
     #   notebook
 notebook==6.4.12
     # via widgetsnbextension
-numpy==1.23.1
+numpy==1.23.2
     # via
     #   -r requirements.in
     #   altair
