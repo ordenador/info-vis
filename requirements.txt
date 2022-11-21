@@ -101,7 +101,7 @@ jupyter-client==7.3.4
     #   ipykernel
     #   nbclient
     #   notebook
-jupyter-core==4.10.0
+jupyter-core==4.11.2
     # via
     #   jupyter-client
     #   nbconvert
@@ -119,7 +119,7 @@ markupsafe==2.1.1
     # via
     #   jinja2
     #   nbconvert
-matplotlib==3.6.1
+matplotlib==3.6.2
     # via
     #   -r requirements.in
     #   seaborn
