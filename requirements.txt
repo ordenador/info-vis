@@ -119,7 +119,7 @@ markupsafe==2.1.1
     # via
     #   jinja2
     #   nbconvert
-matplotlib==3.6.1
+matplotlib==3.6.3
     # via
     #   -r requirements.in
     #   seaborn
@@ -266,7 +266,7 @@ spotipy==2.20.0
     # via -r requirements.in
 stack-data==0.3.0
     # via ipython
-streamlit==1.14.0
+streamlit==1.17.0
     # via
     #   -r requirements.in
     #   streamlit-aggrid
