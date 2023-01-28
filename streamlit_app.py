@@ -1,8 +1,6 @@
 import ast
-import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
-import seaborn as sns
 import streamlit as st
 from PIL import Image
 import requests
@@ -113,44 +111,4 @@ with col32:
         st.audio(track_filtred['preview_url'])
     else:
         st.write("No existe vista previa disponible")
-
-st.markdown("---")
-st.markdown("<h5 style='text-align: center;'> Características de las pistas por género musical</h1>", unsafe_allow_html=True)
-
-with st.container():
-    generes_list = []
-    for index, row in data.iterrows():
-        generes = row['artist_genres']
-        generes = ast.literal_eval(generes)
-        if generes:
-            generes_list.append(generes)
-
-    generes_list = [x for sublist in generes_list for x in sublist]
-    generes_list = [i for i in generes_list if generes_list.count(i)>30]
-    generes_list = sorted(set(generes_list))
-
-    # top-level filters
-    genere_box = st.selectbox("Selecciona el genero musical", generes_list)
-    genere_filter =  data[data['artist_genres'].str.contains("\'{}\'".format(genere_box))]
-    st.write("Cantidad de elementos encontrados:", genere_filter.shape[0])
-    sns.set_palette("dark")
-    features_o = ['energy','loudness','danceability']
-    sns_size = (11, 3)
-    fig = plt.figure(figsize=sns_size)
-    plt.subplot(1, 3, 1)
-    sns.distplot(genere_filter['energy'])
-    plt.subplot(1, 3, 2)
-    sns.distplot(genere_filter['loudness'])
-    plt.subplot(1, 3, 3)
-    sns.distplot(genere_filter['danceability'])
-    st.pyplot(fig, figsize=sns_size)
-    st.markdown("<p style='text-align: center;font-size: .9em;'>Gráficos de distribución de probabilidad de las variables energy, loudness y danceability por género musical.</p>", unsafe_allow_html=True)
-
-st.markdown("""
----
-### Integrantes:
-* **Luis Tobar**
-* **Agustin Uribe**
-* **Mario Faúndez**
-""")
 
