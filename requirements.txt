@@ -61,7 +61,7 @@ pandas==1.5.3
     #   streamlit-aggrid
 pillow==9.4.0
     # via streamlit
-plotly==5.13.0
+plotly==5.13.1
     # via -r requirements.in
 protobuf==3.20.3
     # via streamlit
@@ -130,6 +130,8 @@ urllib3==1.26.14
     #   requests
     #   spotipy
 validators==0.20.0
+    # via streamlit
+watchdog==2.3.0
     # via streamlit
 zipp==3.12.0
     # via importlib-metadata
