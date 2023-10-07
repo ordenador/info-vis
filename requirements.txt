@@ -61,7 +61,7 @@ pandas==1.5.3
     #   altair
     #   streamlit
     #   streamlit-aggrid
-pillow==9.4.0
+pillow==10.0.1
     # via streamlit
 plotly==5.14.1
     # via -r requirements.in
