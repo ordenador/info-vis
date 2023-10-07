@@ -97,8 +97,6 @@ rich==13.3.0
     # via streamlit
 scipy==1.10.1
     # via -r requirements.in
-semver==2.13.0
-    # via streamlit
 six==1.16.0
     # via
     #   python-dateutil
@@ -107,7 +105,7 @@ smmap==5.0.0
     # via gitdb
 spotipy==2.22.1
     # via -r requirements.in
-streamlit==1.17.0
+streamlit==1.21.0
     # via
     #   -r requirements.in
     #   streamlit-aggrid
