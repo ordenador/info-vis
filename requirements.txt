@@ -128,11 +128,13 @@ tzdata==2023.3
     # via pandas
 tzlocal==5.1
     # via streamlit
-urllib3==2.0.6
+urllib3==2.0.7
     # via
     #   requests
     #   spotipy
 validators==0.22.0
+    # via streamlit
+watchdog==3.0.0
     # via streamlit
 zipp==3.17.0
     # via importlib-metadata
