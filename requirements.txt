@@ -96,7 +96,7 @@ rpds-py==0.10.4
     # via
     #   jsonschema
     #   referencing
-scipy==1.11.3
+scipy==1.11.4
     # via -r requirements.in
 six==1.16.0
     # via
@@ -133,6 +133,8 @@ urllib3==2.0.6
     #   requests
     #   spotipy
 validators==0.22.0
+    # via streamlit
+watchdog==3.0.0
     # via streamlit
 zipp==3.17.0
     # via importlib-metadata
