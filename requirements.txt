@@ -22,7 +22,7 @@ click==8.1.7
     # via streamlit
 gitdb==4.0.10
     # via gitpython
-gitpython==3.1.37
+gitpython==3.1.41
     # via streamlit
 idna==3.4
     # via requests
@@ -133,6 +133,8 @@ urllib3==2.0.6
     #   requests
     #   spotipy
 validators==0.22.0
+    # via streamlit
+watchdog==3.0.0
     # via streamlit
 zipp==3.17.0
     # via importlib-metadata
