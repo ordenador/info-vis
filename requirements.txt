@@ -106,7 +106,7 @@ smmap==5.0.1
     # via gitdb
 spotipy==2.23.0
     # via -r requirements.in
-streamlit==1.27.2
+streamlit==1.30.0
     # via
     #   -r requirements.in
     #   streamlit-aggrid
@@ -133,6 +133,8 @@ urllib3==2.0.6
     #   requests
     #   spotipy
 validators==0.22.0
+    # via streamlit
+watchdog==3.0.0
     # via streamlit
 zipp==3.17.0
     # via importlib-metadata
